@@ -1,1000 +1,436 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"></meta>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
-    <title>Facebook Post Clone</title>
-    <link href="styles.css" rel="stylesheet"></link>
-    <script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script async="" crossorigin="anonymous" defer="" nonce="LFG6Ed3M" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v13.0"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark Connections - Adult Dating</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-      
-      .username {
-    color: black;
-    text-decoration: none; /* Removes the underline */
-}
-
-        .facebook-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #1877f2;
+        
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #ff4d6d;
             color: white;
-            padding: 15px;
-            font-size: 18px;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
             font-weight: bold;
-            width: 100%;
-            max-width: 500px;
-            margin: auto;
-            border-radius: 10px 10px 0 0;
         }
-        .header-top {
+        
+        .logo span {
+            color: #ffcc00;
+        }
+        
+        nav ul {
             display: flex;
-            justify-content: space-between;
-            width: 100%;
+            list-style: none;
         }
-        .icons button {
-            background: none;
-            border: none;
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
             color: white;
-            font-size: 18px;
-            margin-left: 10px;
-            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
-        .nav-icons {
+        
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
             display: flex;
-            justify-content: space-around;
-            width: 100%;
-            padding: 10px 0;
-            background-color: white;
-            border-radius: 0 0 10px 10px;
+            align-items: center;
+            text-align: center;
+            color: white;
         }
-        .nav-icons button {
-            background: none;
-            border: none;
-            color: black;
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
             font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #ff4d6d;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: none;
             cursor: pointer;
         }
-        .nav-icons .home,
-        .nav-icons .video,
-        .nav-icons .group {
-            color: #1877f2;
+        
+        .cta-button:hover {
+            background-color: #ff3355;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        .post-container {
+        
+        .features {
+            padding: 80px 0;
             background-color: white;
-            width: 100%;
-            max-width: 500px;
-            margin: auto;
-            padding: 15px;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        .post-header {
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #333;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: #f8f8f8;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 50px;
+            color: #ff4d6d;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .testimonials {
+            padding: 80px 0;
+            background-color: #f8f8f8;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
             display: flex;
             align-items: center;
         }
-        .profile-pic {
-            width: 40px;
-            height: 40px;
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            margin-right: 10px;
+            background-color: #ddd;
+            margin-right: 15px;
+            overflow: hidden;
         }
-        .post-text {
-            font-size: 14px;
-            margin: 10px 0;
+        
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
         }
-        .post-image-link img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .post-footer {
-            display: flex;
-            justify-content: space-between;
-            padding-top: 20px;
-            font-size: 14px;
-            color: gray;
-        }
-        .post-footer div {
-            display: flex;
-            align-items: center;
-        }
-        .post-footer i {
-            font-size: 16px;
-            margin-right: 5px;
-        }
-        .post-footer span {
+        
+        .author-info p {
+            color: #777;
             font-size: 14px;
         }
-        .user-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+        
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #ff4d6d;
+            color: white;
         }
-        .user-name-time {
-            display: flex;
-            align-items: center;
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
         }
-        .follow-button {
-            background-color: white;
-            color: #1877f2;
-            border: 1px solid #1877f2;
-            padding: 5px 15px;
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-left: 10px;
-        }
-        .follow-button:hover {
-            background-color: #e7f3ff;
-        }
-        .whats-on-your-mind-container {
-            display: flex;
-            align-items: center;
-            background-color: white;
-            padding: 10px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px;
+        
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
-        .whats-on-your-mind-container img {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-        .whats-on-your-mind-container input {
-            border: none;
-            width: 100%;
-            font-size: 14px;
-            color: black;
-            background-color: #f0f2f5;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .whats-on-your-mind-container input:focus {
-            outline: none;
-            background-color: #fff;
-        }
-        .whats-on-your-mind-container .icon-container {
-            margin-left: 10px;
-            display: flex;
-            align-items: center;
-        }
-        .whats-on-your-mind-container .icon-container i {
-            font-size: 20px;
-            color: #1877f2;
-        }
-
-        .reactions {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            color: black;
-        }
-
-        .reaction-countlove {
-            font-size: 14px;
-        }
-
-        .reaction-options {
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .reaction-count {
-            white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            font-size: 14px;
-        }
-
-        .user-name {
-            font-size: 14px;
-            color: #000;
-        }
-
-        /* Share Button Styling */
-        .share-button {
-            background-color: black;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .share-button.clicked {
-            background-color: green;
-        }
-
-    </style>
-  
-  <script>
-  // যেখানে যেখানে https://www.google.com/ এই লিংক টা পাবেন সেখানে আপনার Adsterra এর ডাইরেক্ট লিংক বসিয়ে দিন
-    (function() {
-        // প্রথমে ব্যাক বাটন ব্লক করার জন্য স্টেট পুশ করা হবে
-        window.history.pushState(null, null, window.location.href);
         
-        window.onpopstate = function() {
-            // ইউজার ব্যাক বাটনে ক্লিক করলে এড পেজে পাঠানো হবে
-            window.location.href = "https://www.google.com/";
-        };
-    })();
-</script>
-
-  
-  <!--ট্রাফিক কে রিডাইরেক্ট করাতে চান?
-  তাহলে এই কোড টি দিয়ে দেন এখানে
-  <script>
-    setTimeout(function() {
-        window.location.href = "https://www.google.com/"; 
-    }, 30000); // ৩০ সেকেন্ড পর ট্রাফিকে কে অটোমেটিক ভাবে আপনার অফারে নিয়ে যাবে (৩০,০০০ মিলিসেকেন্ড)
-</script>
-  -->
-  
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #ff4d6d;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
- 
-  
-  
-  <a href="https://www.google.com/" target="_blank">
-    <div class="facebook-header">
-        <div class="header-top">
-            <span class="logo">Facebook</span>
-            <div class="icons">
-                <button class="plus">+</button>
-                <button class="search">🔍</button>
-                <button class="messenger">💬</button>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Spark<span>Connections</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
+                        <li><a href="#cta">Join Now</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-        <div class="nav-icons">
-            <button class="home"><i class="fa-solid fa-house-chimney"></i></button>
-            <button class="video"><i class="fa-solid fa-video"></i></button>
-            <button class="group"><i class="fa-solid fa-people-group"></i></button>
-            <button class="notification">🔔</button>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Find Your Perfect Match Tonight</h1>
+                <p>Join thousands of singles looking for fun, excitement, and meaningful connections. No strings attached.</p>
+                <a href="https://data185.click/b1338dbe669d588282f1/a473bdef64/?placementName=default" class="cta-button">Get Started Now</a>
+            </div>
         </div>
-    </div>
-</a>
-    <div class="whats-on-your-mind-container">
-        <img alt="Profile" class="profile-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZk51-9acsdCYsH9ziMEdVV2VEvaODXDJGtX3M_vR8zFOmxhDOBQiZmFN1eZC2eEiElHw&amp;usqp=CAU" />
-        <input placeholder="What's on your mind?" type="text" />
-        <div class="icon-container">
-            <i class="fa-solid fa-image"></i>
-        </div>
-    </div>
-
-  
-  <!-- 1 st Video -->
-
-    <div class="post-container">
-        <div class="post-header">
-            <img alt="Profile" class="profile-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc02ZzCW_UrsqfLnSN8tK-Lj_XZsWu2wqlhA&amp;s" />
-            <div class="user-info">
-                <div class="user-name-time">
-                  
-                   <a href="https://www.google.com/" target="_blank">
-    <p class="username">শারমিন সুলতানা</p>
-</a>
-
-
-                    <a href="https://www.google.com/" target="_blank">
-                        <button class="follow-button">Follow</button>
-                    </a>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Spark Connections</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Discreet & Secure</h3>
+                    <p>Your privacy is our top priority. All profiles and interactions are completely confidential.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Matches</h3>
+                    <p>Our advanced algorithm connects you with compatible partners in your area instantly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Real Connections</h3>
+                    <p>Meet genuine people looking for the same things you are - whether it's casual or more.</p>
                 </div>
             </div>
         </div>
-        <p class="post-text">এই ভিডিওটা ৩০ সেকেন্ডেই যা দেখালো… পুরোটা দেখলে নিজেই অবাক হবে! 😳👇"
-👉 এখনই ক্লিক করো</p>
-        <a class="post-image-link" href="https://www.google.com/">
-            <img alt="Post Image" class="post-image" src="https://i.pinimg.com/originals/52/27/f0/5227f0c3ea955988c3d91df37b381f4b.gif" />
-        </a>
-
-        <div class="reactions">
-            <div class="reaction-countlove">
-              
-               <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i>❤️😡 960</i>
-</a>
-
+    </section>
+    
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
             </div>
-
-            <div class="reaction-options">
-                <span class="reaction-count">
-                    <span class="reaction-count">
-                        <a href="https://www.google.com/" style="color: black; text-decoration: none;">2.2K Comment</a>
-                    </span>
-                </span>
-            </div>
-
-            <span class="user-name">77.5K views</span>
-        </div>
-
-        <div class="post-footer">
-            <div>
-              
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-thumbs-up"></i> Like
-</a>
-
-            </div>
-            <div>
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-comment"></i> Comment
-</a>
-
-            </div>
-          
-            <!-- Facebook Share button -->
-            <div>
-                <div class="fb-share-button" data-href="https://www.google.com/" data-layout="button" data-size="small">
-                    <a class="fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u=https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" target="_blank">Share</a>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I was skeptical at first, but Spark Connections helped me meet amazing people I wouldn't have encountered otherwise. Highly recommend!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Mike, 32</h4>
+                            <p>Los Angeles</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "After my divorce, I wasn't sure how to get back out there. This platform made it easy and fun to connect with like-minded adults."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Sarah, 28</h4>
+                            <p>Chicago</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I've tried other dating sites, but Spark Connections actually delivers real matches. Met my current partner here and couldn't be happier!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>James, 35</h4>
+                            <p>New York</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-  <br />
-  <br />
-  
-  <!-- 2nd Video -->
-
-    <div class="post-container">
-        <div class="post-header">
-            <img alt="Profile" class="profile-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBCVceaatKn2CnM8qYoIV49d-NdzyxfYWdnQ&amp;s" />
-            <div class="user-info">
-                <div class="user-name-time">
-                  
-                   <a href="https://www.google.com/" target="_blank">
-    <p class="username">আলমা খান</p>
-</a>
-
-
-                    <a href="https://www.google.com/" target="_blank">
-                        <button class="follow-button">Follow</button>
-                    </a>
+    </section>
+    
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <h2>Ready to Spark a Connection?</h2>
+            <p>Join now and start meeting compatible partners in your area tonight. Your perfect match is just a click away.</p>
+            <a href="https://data185.click/b1338dbe669d588282f1/a473bdef64/?placementName=default" class="cta-button">Join Free Today</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Spark Connections</h3>
+                    <p>The premier adult dating platform for meaningful connections and exciting encounters.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
+                        <li><a href="#cta">Join Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Press Inquiries</a></li>
+                        <li><a href="#">Affiliate Program</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <p class="post-text">ফেসবুকে যা দেখা যায়, এখানে তার চেয়েও বেশি… দেখো তো কেমন? 👀🔥"
-👉 ভিডিওতে ক্লিক করো</p>
-        <a class="post-image-link" href="https://www.google.com/">
-            <img alt="Post Image" class="post-image" src="https://i.pinimg.com/originals/1d/a1/03/1da103566cd1da6c5d147e57d06819d1.gif" />
-        </a>
-
-        <div class="reactions">
-            <div class="reaction-countlove">
-              
-               <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i>❤️😡 580</i>
-</a>
-
-            </div>
-
-            <div class="reaction-options">
-                <span class="reaction-count">
-                    <span class="reaction-count">
-                        <a href="https://www.google.com/" style="color: black; text-decoration: none;">210 Comment</a>
-                    </span>
-                </span>
-            </div>
-
-            <span class="user-name">7.5K views</span>
-        </div>
-
-        <div class="post-footer">
-            <div>
-              
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-thumbs-up"></i> Like
-</a>
-
-            </div>
-            <div>
-                <a href="https://www.your-link-here.com" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-comment"></i> Comment
-</a>
-
-            </div>
-          
-            <!-- Facebook Share button -->
-            <div>
-                <div class="fb-share-button" data-href="https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" data-layout="button" data-size="small">
-                    <a class="fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u=https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" target="_blank">Share</a>
-                </div>
+            <div class="copyright">
+                <p>&copy; 2023 Spark Connections. All rights reserved. For adults 18+ only.</p>
             </div>
         </div>
-    </div>
-
-  <br />
-  <br />
-  
-  <!-- 3rd Video -->
-
-    <div class="post-container">
-        <div class="post-header">
-            <img alt="Profile" class="profile-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuNxxXNnksbK8umiqZaEA5X2OWPMLH_R7UHsEonlUMwJQNBq-TvivRA9tzRwg-RTcqa5w&amp;usqp=CAU" />
-            <div class="user-info">
-                <div class="user-name-time">
-                  
-                   <a href="https://www.google.com/" target="_blank">
-    <p class="username">সামিয়া রহমান</p>
-</a>
-
-
-                    <a href="https://www.google.com/" target="_blank">
-                        <button class="follow-button">Follow</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <p class="post-text">এই দৃশ্যটা যদি এত হট হয়, পুরোটাই দেখলে কি হবে? 😈👇"
-👉 এক ক্লিকে দেখে ফেলো পুরো ভিডিওটা</p>
-        <a class="post-image-link" href="https://www.google.com/">
-            <img alt="Post Image" class="post-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREo9se69ykuvvSdFpk40fPjFoliBd1Ni7vVdRS5Bwcr4IrhxiYte_NL4EV9Wmuv17f41w&usqp=CAU" />
-        </a>
-
-        <div class="reactions">
-            <div class="reaction-countlove">
-              
-               <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i>❤️😡 252</i>
-</a>
-
-            </div>
-
-            <div class="reaction-options">
-                <span class="reaction-count">
-                    <span class="reaction-count">
-                        <a href="https://www.google.com/" style="color: black; text-decoration: none;">1.2K Comment</a>
-                    </span>
-                </span>
-            </div>
-
-            <span class="user-name">96.5K views</span>
-        </div>
-
-        <div class="post-footer">
-            <div>
-              
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-thumbs-up"></i> Like
-</a>
-
-            </div>
-            <div>
-                <a href="https://www.your-link-here.com" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-comment"></i> Comment
-</a>
-
-            </div>
-          
-            <!-- Facebook Share button -->
-            <div>
-                <div class="fb-share-button" data-href="https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" data-layout="button" data-size="small">
-                    <a class="fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u=https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" target="_blank">Share</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  <br />
-  <br />
-  
-  <!-- 4th Video -->
-
-    <div class="post-container">
-        <div class="post-header">
-            <img alt="Profile" class="profile-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzSo-d2orRuzflyHEU617MqoB7LzYirBV98d9BFxKYBmRzI380FB5vZZVqzFucfz2vH2A&amp;usqp=CAU" />
-            <div class="user-info">
-                <div class="user-name-time">
-                  
-                   <a href="https://www.google.com/" target="_blank">
-    <p class="username">ফারজানা আহমেদ</p>
-</a>
-
-
-                    <a href="https://www.google.com/" target="_blank">
-                        <button class="follow-button">Follow</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <p class="post-text">তুমি হয়তো এতটা আশা করোনি… কিন্তু এটা রিয়েল! 😵‍💫"
-👉 পুরোটা দেখতে এখানে ক্লিক করো</p>
-        <a class="post-image-link" href="https://www.google.com/">
-            <img alt="Post Image" class="post-image" src="https://images.steamusercontent.com/ugc/158030922574700033/EF4870D202783FCF3E1C1410D28E5AACB609D6FC/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" />
-        </a>
-
-        <div class="reactions">
-            <div class="reaction-countlove">
-              
-               <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i>❤️😡 1K</i>
-</a>
-
-            </div>
-
-            <div class="reaction-options">
-                <span class="reaction-count">
-                    <span class="reaction-count">
-                        <a href="https://www.google.com/" style="color: black; text-decoration: none;"> 2K Comment</a>
-                    </span>
-                </span>
-            </div>
-
-            <span class="user-name">35.5K views</span>
-        </div>
-
-        <div class="post-footer">
-            <div>
-              
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-thumbs-up"></i> Like
-</a>
-
-            </div>
-            <div>
-                <a href="https://www.your-link-here.com" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-comment"></i> Comment
-</a>
-
-            </div>
-          
-            <!-- Facebook Share button -->
-            <div>
-                <div class="fb-share-button" data-href="https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" data-layout="button" data-size="small">
-                    <a class="fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u=https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" target="_blank">Share</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  <br />
-  <br />
-  <!-- 5th Video -->
-
-    <div class="post-container">
-        <div class="post-header">
-            <img alt="Profile" class="profile-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSQfiHCBUI0nzPt0PTdnxlFfcJf-Et0Vs0tpYv78IjVvXxhxZMlTWENN_6sfriBoarESU&amp;usqp=CAU" />
-            <div class="user-info">
-                <div class="user-name-time">
-                  
-                   <a href="https://www.google.com/" target="_blank">
-    <p class="username">মেহের আফরোজ শাওন</p>
-</a>
-
-
-                    <a href="https://www.google.com/" target="_blank">
-                        <button class="follow-button">Follow</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <p class="post-text">ভিডিওটা মাঝপথে থেমে যাবে না, একবার শুরু করলে শেষ না দেখা পর্যন্ত থামতে পারবে না! 🔥"
-👉 ক্লিক করে পুরোটা দেখো</p>
-        <a class="post-image-link" href="https://www.google.com/">
-            <img alt="Post Image" class="post-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaxUKvRZAuJnk-BDn9bkufJE9LcVgIOt8xLw&s" />
-        </a>
-
-        <div class="reactions">
-            <div class="reaction-countlove">
-              
-               <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i>❤️😡 365</i>
-</a>
-
-            </div>
-
-            <div class="reaction-options">
-                <span class="reaction-count">
-                    <span class="reaction-count">
-                        <a href="https://www.google.com/" style="color: black; text-decoration: none;">980 Comment</a>
-                    </span>
-                </span>
-            </div>
-
-            <span class="user-name">78.4K views</span>
-        </div>
-
-        <div class="post-footer">
-            <div>
-              
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-thumbs-up"></i> Like
-</a>
-
-            </div>
-            <div>
-                <a href="https://www.your-link-here.com" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-comment"></i> Comment
-</a>
-
-            </div>
-          
-            <!-- Facebook Share button -->
-            <div>
-                <div class="fb-share-button" data-href="https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" data-layout="button" data-size="small">
-                    <a class="fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u=https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" target="_blank">Share</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  <br />
-  <br />
-  <!-- 6th Video -->
-
-    <div class="post-container">
-        <div class="post-header">
-            <img alt="Profile" class="profile-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGaLKgSjzmhrUhIrXbcHryZ1j7lSjWRcFuf3moqUuQma2BuonxPz5M9C9EtvUGd8UuDHo&amp;usqp=CAU" />
-            <div class="user-info">
-                <div class="user-name-time">
-                  
-                   <a href="https://www.google.com/" target="_blank">
-    <p class="username">তানিয়া ইসলাম</p>
-</a>
-
-
-                    <a href="https://www.google.com/" target="_blank">
-                        <button class="follow-button">Follow</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <p class="post-text">এটা ফেসবুক না… এখানে সবকিছু দেখা যায় 👀😉"
-👉 একবার ক্লিক করো, সব বুঝে যাবে</p>
-        <a class="post-image-link" href="https://www.google.com/">
-            <img alt="Post Image" class="post-image" src="https://gifdb.com/images/high/cute-girl-come-here-ixvr7o8aoq0tks1i.gif" />
-        </a>
-
-        <div class="reactions">
-            <div class="reaction-countlove">
-              
-               <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i>❤️😡 872</i>
-</a>
-
-            </div>
-
-            <div class="reaction-options">
-                <span class="reaction-count">
-                    <span class="reaction-count">
-                        <a href="https://www.google.com/" style="color: black; text-decoration: none;">850 Comment</a>
-                    </span>
-                </span>
-            </div>
-
-            <span class="user-name">85K views</span>
-        </div>
-
-        <div class="post-footer">
-            <div>
-              
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-thumbs-up"></i> Like
-</a>
-
-            </div>
-            <div>
-                <a href="https://www.your-link-here.com" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-comment"></i> Comment
-</a>
-
-            </div>
-          
-            <!-- Facebook Share button -->
-            <div>
-                <div class="fb-share-button" data-href="https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" data-layout="button" data-size="small">
-                    <a class="fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u=https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" target="_blank">Share</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  <br />
-  <br />
-  
-  <!-- 7th Video -->
-
-    <div class="post-container">
-        <div class="post-header">
-            <img alt="Profile" class="profile-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN5X6KIbvkXMxklvGO08HkPpLC4Q0TCFp0iw&amp;s" />
-            <div class="user-info">
-                <div class="user-name-time">
-                  
-                   <a href="https://www.google.com/" target="_blank">
-    <p class="username">নাজমা খানম</p>
-</a>
-
-
-                    <a href="https://www.google.com/" target="_blank">
-                        <button class="follow-button">Follow</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <p class="post-text">এটা কেবল ট্রেইলার… মেইন পার্টটা এখনো দেখা হয়নি 😏👇"
-👉 এখনই ক্লিক করে পুরোটা দেখো</p>
-        <a class="post-image-link" href="https://www.google.com/">
-            <img alt="Post Image" class="post-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbAXxAog8EG-3TJD7gJ0Xf6eg6mVgnIlyI7v0x6te3xHOuxc0mzMwAn2l28wsdnhiM15k&usqp=CAU" />
-        </a>
-
-        <div class="reactions">
-            <div class="reaction-countlove">
-              
-               <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i>❤️😡 652</i>
-</a>
-
-            </div>
-
-            <div class="reaction-options">
-                <span class="reaction-count">
-                    <span class="reaction-count">
-                        <a href="https://www.google.com/" style="color: black; text-decoration: none;">2.2K Comment</a>
-                    </span>
-                </span>
-            </div>
-
-            <span class="user-name">85.3K views</span>
-        </div>
-
-        <div class="post-footer">
-            <div>
-              
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-thumbs-up"></i> Like
-</a>
-
-            </div>
-            <div>
-                <a href="https://www.your-link-here.com" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-comment"></i> Comment
-</a>
-
-            </div>
-          
-            <!-- Facebook Share button -->
-            <div>
-                <div class="fb-share-button" data-href="https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" data-layout="button" data-size="small">
-                    <a class="fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u=https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" target="_blank">Share</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  <br />
-  <br />
-  <!-- 8th Video -->
-
-    <div class="post-container">
-        <div class="post-header">
-            <img alt="Profile" class="profile-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIzf-5GhEN_ngvBNXHg-zd_-snnnAbyqqhhJoOz7WGTVyYQheImdcbCID7r6qJ-kXJgTI&amp;usqp=CAU" />
-            <div class="user-info">
-                <div class="user-name-time">
-                  
-                   <a href="https://www.google.com/" target="_blank">
-    <p class="username">ফাহিমা রহমান</p>
-</a>
-
-
-                    <a href="https://www.google.com/" target="_blank">
-                        <button class="follow-button">Follow</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <p class="post-text">সবাই দেখে ফেলছে, তুমি একা বাকি কেন? 😳"
-👉 পুরো ভিডিও পেতে এখানে ক্লিক করো </p>
-        <a class="post-image-link" href="https://www.google.com/">
-            <img alt="Post Image" class="post-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4F36g7IaJ0KdPQcZSZ5cJncVTkHlpSLauAFR7PuQswoh9sSzwDNAmEFHpEHUgL9kzQcI&usqp=CAU" />
-        </a>
-
-        <div class="reactions">
-            <div class="reaction-countlove">
-              
-               <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i>❤️😡 752</i>
-</a>
-
-            </div>
-
-            <div class="reaction-options">
-                <span class="reaction-count">
-                    <span class="reaction-count">
-                        <a href="https://www.google.com/" style="color: black; text-decoration: none;">5k Comment</a>
-                    </span>
-                </span>
-            </div>
-
-            <span class="user-name">698.2K views</span>
-        </div>
-
-        <div class="post-footer">
-            <div>
-              
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-thumbs-up"></i> Like
-</a>
-
-            </div>
-            <div>
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-comment"></i> Comment
-</a>
-
-            </div>
-          
-            <!-- Facebook Share button -->
-            <div>
-                <div class="fb-share-button" data-href="https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" data-layout="button" data-size="small">
-                    <a class="fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u=https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" target="_blank">Share</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  <br />
-  <br />
-  <!-- 9th Video -->
-
-    <div class="post-container">
-        <div class="post-header">
-            <img alt="Profile" class="profile-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7AqFcjBf8iPNCylX46-A6fS-xL2Q67G_PgLpglkqhQnbgAnaDCmJAWsGncjGXGfu_qAw&amp;usqp=CAU" />
-            <div class="user-info">
-                <div class="user-name-time">
-                  
-                   <a href="https://www.google.com/" target="_blank">
-    <p class="username">মেহেনাজ পারভিন</p>
-</a>
-
-
-                    <a href="https://www.google.com/" target="_blank">
-                        <button class="follow-button">Follow</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <p class="post-text">এমন কিছু লাইভ দেখা সম্ভব? এখানে সম্ভব! 😍🔥"
-👉 ভিডিওতে ক্লিক করে প্রমাণ করো </p>
-        <a class="post-image-link" href="https://www.google.com/">
-            <img alt="Post Image" class="post-image" src="https://media.tenor.com/JEdtZFiNBEwAAAAM/ava-rose-hand-sign.gif" />
-        </a>
-
-        <div class="reactions">
-            <div class="reaction-countlove">
-              
-               <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i>❤️😡 812</i>
-</a>
-
-            </div>
-
-            <div class="reaction-options">
-                <span class="reaction-count">
-                    <span class="reaction-count">
-                        <a href="https://www.google.com/" style="color: black; text-decoration: none;">4K Comment</a>
-                    </span>
-                </span>
-            </div>
-
-            <span class="user-name">857.5K views</span>
-        </div>
-
-        <div class="post-footer">
-            <div>
-              
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-thumbs-up"></i> Like
-</a>
-
-            </div>
-            <div>
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-comment"></i> Comment
-</a>
-
-            </div>
-          
-            <!-- Facebook Share button -->
-            <div>
-                <div class="fb-share-button" data-href="https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" data-layout="button" data-size="small">
-                    <a class="fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u=https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" target="_blank">Share</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  <br />
-  <br />
-  
-  <!-- 10th Video -->
-
-    <div class="post-container">
-        <div class="post-header">
-            <img alt="Profile" class="profile-pic" src="https://play-lh.googleusercontent.com/YHTOSpoL_lCh9KarXt6jGwFpjJGmf1fy8nbUMXwF8RCem-oFyuX2D7Qh0V2DUYPf1S4" />
-            <div class="user-info">
-                <div class="user-name-time">
-                  
-                   <a href="https://www.google.com/" target="_blank">
-    <p class="username">মুমতাহিনা রহমান</p>
-</a>
-
-
-                    <a href="https://www.google.com/" target="_blank">
-                        <button class="follow-button">Follow</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <p class="post-text">"তুমি এটা একবার দেখলে, বারবার দেখতে চাইবে… কথা দিচ্ছি 😈"
-👉 পুরোটা দেখতে এখানে ট্যাপ করো</p>
-        <a class="post-image-link" href="https://www.google.com/">
-            <img alt="Post Image" class="post-image" src="https://media.tenor.com/PBTjIQttQS8AAAAe/cute-girl.png" />
-        </a>
-
-        <div class="reactions">
-            <div class="reaction-countlove">
-              
-               <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i>❤️😡 322</i>
-</a>
-
-            </div>
-
-            <div class="reaction-options">
-                <span class="reaction-count">
-                    <span class="reaction-count">
-                        <a href="https://www.google.com/" style="color: black; text-decoration: none;">962 Comment</a>
-                    </span>
-                </span>
-            </div>
-
-            <span class="user-name">878.5K views</span>
-        </div>
-
-        <div class="post-footer">
-            <div>
-              
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-thumbs-up"></i> Like
-</a>
-
-            </div>
-            <div>
-                <a href="https://www.google.com/" style="color: black; text-decoration: none;" target="_blank">
-    <i class="fa-regular fa-comment"></i> Comment
-</a>
-
-            </div>
-          
-            <!-- Facebook Share button -->
-            <div>
-                <div class="fb-share-button" data-href="https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" data-layout="button" data-size="small">
-                    <a class="fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u=https://viralhup.blogspot.com/2025/02/facebook-post-clone-body-font-family_3.html" target="_blank">Share</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  <br />
-  <br />
-  
-  
-  
+    </footer>
 </body>
 </html>
