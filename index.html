@@ -1,115 +1,149 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>18+ Private Moments</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adsterra Full Ads Optimized Page</title>
+  <meta name="description" content="Demo page with Adsterra ads: header, sidebar, inline, sticky footer, interstitial and push ads." />
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      color: #fff;
-      text-align: center;
-      background: url('https://images.steamusercontent.com/ugc/158030922574688601/C8E30BD16F53DC0C8767D1FA77E862577FC24FF2/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false') no-repeat center center fixed;
-      background-size: cover;
-    }
-
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.4); /* Less dark */
-      min-height: 100vh;
-      padding: 50px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    h1 {
-      color: #ff3366;
-      font-size: 32px;
-      margin-bottom: 15px;
-    }
-
-    p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: block;
-      background: #ff3366;
-      color: #fff;
-      text-decoration: none;
-      padding: 18px 25px;
-      margin: 15px auto;
-      border-radius: 8px;
-      width: 90%;
-      max-width: 400px;
-      font-size: 20px;
-      font-weight: bold;
-      box-shadow: 0 5px 10px rgba(255, 51, 102, 0.4);
-    }
-
-    .btn:hover {
-      background: #e6004c;
-    }
-
-    .note {
-      font-size: 14px;
-      color: #ddd;
-      margin-top: 30px;
-    }
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f9f9f9;color:#111}
+    .container{max-width:1100px;margin:20px auto;padding:10px}
+    header,footer{background:#fff;padding:10px;margin-bottom:20px;border-radius:6px;box-shadow:0 1px 5px rgba(0,0,0,.08)}
+    .layout{display:grid;grid-template-columns:1fr 300px;gap:20px}
+    .card{background:#fff;padding:12px;margin-bottom:20px;border-radius:6px;box-shadow:0 1px 5px rgba(0,0,0,.08)}
+    .ad{display:flex;justify-content:center;align-items:center;min-height:80px;border:1px dashed #ddd;margin:12px 0}
+    .sidebar .ad{min-height:250px}
+    .sticky-ad{position:fixed;bottom:0;left:0;right:0;z-index:1000;display:flex;justify-content:center;padding:4px}
+    .sticky-ad .inner{background:#fff;padding:6px;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+    @media(max-width:900px){.layout{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <h1>🔥 Feeling Naughty Tonight?</h1>
-    <p>One click can lead to unlimited pleasure. Don’t miss it!</p>
+<div class="container">
 
-   <a class="btn" href="https://www.youtube.com/" target="_blank">👉 Watch Now</a>
-<a class="btn" href="https://www.youtube.com/" target="_blank">🔞 Enter Private World</a>
+  <!-- Header Ad -->
+  <header>
+    <h2>Adsterra Full Page Ads</h2>
+    <div class="ad">
+      <script type="text/javascript">
+        atOptions = {
+          'key' : 'eb0635d7682ef60ee088537542fef7da',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/eb0635d7682ef60ee088537542fef7da/invoke.js" defer></script>
+    </div>
+  </header>
 
+  <!-- Layout -->
+  <main class="layout">
+    <section class="content card">
+      <h3>Inline Content Ads</h3>
+      <p>এই অংশে কিছু কনটেন্ট লেখা হবে এবং মাঝখানে বিজ্ঞাপন দেখানো হবে।</p>
 
-    <div class="note">* Multiple surprises may open 😉</div>
+      <!-- Inline Ad -->
+      <div class="ad">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : 'eb0635d7682ef60ee088537542fef7da',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/eb0635d7682ef60ee088537542fef7da/invoke.js" defer></script>
+      </div>
+
+      <p>আরো কনটেন্ট লিখুন, তারপর আরেকটি অ্যাড।</p>
+
+      <!-- Large Rectangle -->
+      <div class="ad">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : 'eb0635d7682ef60ee088537542fef7da',
+            'format' : 'iframe',
+            'height' : 300,
+            'width' : 600,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/eb0635d7682ef60ee088537542fef7da/invoke.js" defer></script>
+      </div>
+    </section>
+
+    <!-- Sidebar -->
+    <aside class="sidebar card">
+      <h3>Sidebar Ads</h3>
+      <div class="ad">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : 'eb0635d7682ef60ee088537542fef7da',
+            'format' : 'iframe',
+            'height' : 600,
+            'width' : 300,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/eb0635d7682ef60ee088537542fef7da/invoke.js" defer></script>
+      </div>
+      <div class="ad">
+        <script type="text/javascript">
+          atOptions = {
+            'key' : 'eb0635d7682ef60ee088537542fef7da',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/eb0635d7682ef60ee088537542fef7da/invoke.js" defer></script>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Footer Ad -->
+  <footer>
+    <div class="ad">
+      <script type="text/javascript">
+        atOptions = {
+          'key' : 'eb0635d7682ef60ee088537542fef7da',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/eb0635d7682ef60ee088537542fef7da/invoke.js" defer></script>
+    </div>
+    <p style="font-size:13px;color:#666">এই ডেমোতে সব বিজ্ঞাপন Adsterra থেকে। নিজের key ব্যবহার করবেন।</p>
+  </footer>
+</div>
+
+<!-- Sticky Footer -->
+<div class="sticky-ad">
+  <div class="inner">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'eb0635d7682ef60ee088537542fef7da',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/eb0635d7682ef60ee088537542fef7da/invoke.js" defer></script>
   </div>
+</div>
 
-  <!-- 🔻 Social Bar Ad (Just above </body>) -->
-  <div id="socialBar" style="
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #ff3366;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 18px;
-    font-family: sans-serif;
-    z-index: 9999;
-    box-shadow: 0 -4px 12px rgba(0,0,0,0.4);
-  ">
-    🔥 New Naughty Stories Inside — 
-    <a href="https://www.youtube.com/" target="_blank" style="color: yellow; text-decoration: underline;">Click Here</a>
+<!-- Interstitial Ad -->
+<script type="text/javascript" src="//www.highperformanceformat.com/eb0635d7682ef60ee088537542fef7da/ist.js"></script>
 
-  </div>
-
-  <script>
-    const url = "direct link";
-
-    function openMultipleTabs() {
-      for (let i = 0; i < 4; i++) {
-        window.open(url, "_blank");
-      }
-    }
-
-    // Auto open every 10 seconds with 4 tabs
-    setInterval(() => {
-      openMultipleTabs();
-    }, 10000);
-  </script>
-  
-  <script type='text/javascript' src='//gossipwheelbarrowmajority.com/50/fa/99/50fa99cdc041e4c1190056e6993dcc68.js'></script>
+<!-- Push Notification Ad -->
+<script type="text/javascript" src="//www.highperformanceformat.com/eb0635d7682ef60ee088537542fef7da/push.js"></script>
 
 </body>
 </html>
